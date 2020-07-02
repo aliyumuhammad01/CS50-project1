@@ -1,0 +1,12 @@
+CREATE TABLE users( SERIAL PRIMARY KEY,
+first_name VARCHAR NOT NULL,
+last_name VARCHAR NOT NULL,
+email VARCHAR NOT NULL UNIQUE,
+ password VARCHAR NOT NULL);
+
+ CREATE TABLE review(
+ id SERIAL PRIMARY KEY,
+ user_id INTEGER REFERENCES users(id),
+ review TEXT NOT NULL,
+ history TIMESTAMP,
+ isbn VARCHAR  REFERENCES book(isbn));
